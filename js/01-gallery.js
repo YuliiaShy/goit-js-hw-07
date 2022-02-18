@@ -27,14 +27,12 @@ function onGalleryImgClick(event) {
   event.preventDefault();
 
   const eventTarget = event.target;
+  const datasetImage = eventTarget.dataset.source;
 
-  if (!eventTarget.classList.contains('gallery__image')) {
-    return;
-  }
-  const urlLargeImage = eventTarget.dataset.source;
+    if (!datasetImage) return; 
 
  const instance = basicLightbox.create(`
-    <img src=${urlLargeImage} width="800" height="600">
+    <img src=${datasetImage} width="800" height="600">
 `);
 
   instance.show();
